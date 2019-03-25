@@ -19,7 +19,7 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
-gem 'webpacker'
+gem 'webpacker', '~> 3.5'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -150,9 +150,6 @@ JS
   inject_into_file 'config/webpack/environment.js', before: 'module.exports' do
 <<-JS
 const webpack = require('webpack')
-
-// Preventing Babel from transpiling NodeModules packages
-environment.loaders.delete('nodeModules');
 
 // Bootstrap 4 has a dependency over jQuery & Popper.js:
 environment.plugins.prepend('Provide',
